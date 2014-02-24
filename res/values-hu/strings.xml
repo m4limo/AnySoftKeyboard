@@ -197,7 +197,7 @@
   <string name="use_user_dictionary_off_summary"> </string>
   <string name="use_auto_dictionary">Automatikus szótár</string>
   <string name="use_auto_dictionary_on_summary">Gyakran használt szavakat is javasol</string>
-  <string name="use_auto_dictionary_off_summary"> </string>
+<!--   <string name="use_auto_dictionary_off_summary"> </string> -->
   <string name="use_contacts_dictionary">Névjegyzék szótár</string>
   <string name="use_contacts_dictionary_on_summary">A névjegyzékből is javasol neveket</string>
   <string name="use_contacts_dictionary_off_summary"> </string>

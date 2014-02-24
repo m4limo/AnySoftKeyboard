@@ -42,7 +42,7 @@ public class KeyboardThemeFactory extends AddOnsFactory<KeyboardTheme>
 
 		if (selectedTheme == null) {
 			//Haven't found a builder or no preference is stored, so we use the default one
-			selectedTheme = themes.get(0);
+			selectedTheme = themes.get(3);
 
 			SharedPreferences.Editor editor = sharedPreferences.edit();
 			editor.putString(settingKey, selectedTheme.getId());

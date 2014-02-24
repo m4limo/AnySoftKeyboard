@@ -109,7 +109,7 @@
   <string name="use_user_dictionary_off_summary">&lt;string name="use_user_dictionary_off_summary"/&gt;</string>
   <string name="use_auto_dictionary">Auto dictionary</string>
   <string name="use_auto_dictionary_on_summary">Suggest frequently used words too</string>
-  <string name="use_auto_dictionary_off_summary">&lt;string name="use_auto_dictionary_off_summary"/&gt;</string>
+<!--   <string name="use_auto_dictionary_off_summary">&lt;string name="use_auto_dictionary_off_summary"/&gt;</string> -->
   <string name="use_contacts_dictionary">Contacts dictionary</string>
   <string name="use_contacts_dictionary_on_summary">Suggest names from contacts list</string>
   <string name="use_contacts_dictionary_off_summary">&lt;string name="use_contacts_dictionary_off_summary"/&gt;</string>

@@ -350,7 +350,7 @@
   <string name="change_lang_wide">→ ABC →</string>
   <string name="change_lang_regular">ABC</string>
   <string name="change_symbols_wide">← 123 ←</string>
-  <string name="change_symbols_regular">123</string>
+  <string name="change_symbols_regular">123/abc</string>
   <string name="please_wait">Bitte warten</string>
   <string name="toast_lengthy_words_long_operation">Lade Wörterbuch…</string>
   <string name="toast_lengthy_start_up_operation">Starte AnySoftKeyboard…</string>

@@ -8,15 +8,12 @@ import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
-
-import com.anysoftkeyboard.api.KeyCodes;
-import com.anysoftkeyboard.utils.Workarounds;
-
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 
+import com.anysoftkeyboard.utils.Workarounds;
 import com.menny.android.anysoftkeyboard.AnyApplication;
 import com.menny.android.anysoftkeyboard.R;
 
@@ -33,15 +30,15 @@ public class ConfigurationImpl implements Configuration, OnSharedPreferenceChang
 	private boolean mShowKeyPreview = true;
 	private boolean mKeyPreviewAboveKey = true;
 	private boolean mSwapPunctuationAndSpace = true;
-	private boolean mShowHintTextOnKeys = true;
-	private boolean mShowKeyboardNameText = true;
+	private boolean mShowHintTextOnKeys = false;
+	private boolean mShowKeyboardNameText = false;
 	private boolean mUseCustomHintAlign = true;
 	private int mCustomHintAlign = Gravity.BOTTOM;
 	private int mCustomHintVAlign = Gravity.TOP;
-	private boolean mSwitchKeyboardOnSpace = true;
-	private boolean mUseFullScreenInputInLandscape = true;
+	private boolean mSwitchKeyboardOnSpace = false;
+	private boolean mUseFullScreenInputInLandscape = false;
 	private boolean mUseFullScreenInputInPortrait = false;
-	private boolean mUseChewbacca = true;
+	private boolean mUseChewbacca = false;
 	private boolean mUseKeyRepeat = true;
 	private float mKeysHeightFactorInPortrait = 1.0f;
 	private float mKeysHeightFactorInLandscape = 1.0f;
@@ -55,12 +52,12 @@ public class ConfigurationImpl implements Configuration, OnSharedPreferenceChang
 	private int mSwipeRightKeyCode;
 	private int mPinchKeyCode;
 	private int mSeparateKeyCode;
-	private boolean mActionKeyInvisibleWhenRequested = false;
+	private boolean mActionKeyInvisibleWhenRequested = true;
 	//private String mRtlWorkaround ="auto";
 	private boolean mIsDoubleSpaceChangesToPeroid = true;
 	private boolean mShouldPopupForLanguageSwitch = false;
 	private boolean mHideSoftKeyboardWhenPhysicalKeyPressed = true;
-	private boolean mShowVersionNotification = true;
+	private boolean mShowVersionNotification = false;
 	private boolean mShowTipsNotification = true;
 	private boolean mUse16KeysSymbolsKeyboard = false;
 	private boolean mUseBackword = true;
@@ -68,7 +65,7 @@ public class ConfigurationImpl implements Configuration, OnSharedPreferenceChang
 	private boolean mCycleOverAllSymbolsKeyboard = true;
 	private boolean mUseVolumeKeyForLeftRight = false;
 	private boolean mUseCameraKeyForBackspaceBackword = false;
-	private boolean mUseContactsDictionary = true;
+	private boolean mUseContactsDictionary = false;
 	private int mAutoDictionaryInsertionThreshold = 9;
 	private boolean mIsStickyExtensionKeyboard = false;
 	private boolean mDrawExtensionKeyboardAboveMainKeyboard = true;
@@ -109,39 +106,47 @@ public class ConfigurationImpl implements Configuration, OnSharedPreferenceChang
 	}
 	
 	private void customizeSettingValues(Context context, SharedPreferences sp) {
+		// m4l -> nousguide settings
 //			final int customizationLevel = sp.getInt(CUSTOMIZATION_LEVEL, 0);
 //			if (customizationLevel < 1)
 //			{
-//				Editor e = sp.edit();
-//				
-//				e.putBoolean(context.getString(R.string.settings_key_lang_key_shows_popup), true);
-//				e.putBoolean(context.getString(R.string.settings_key_show_version_notification), false);
+				Editor e = sp.edit();
+				
+				e.putBoolean(context.getString(R.string.settings_key_lang_key_shows_popup), false);
+				e.putBoolean(context.getString(R.string.settings_key_show_version_notification), false);
 //				e.putBoolean(context.getString(R.string.settings_key_use_16_keys_symbols_keyboards), true);
-//				e.putBoolean(context.getString(R.string.settings_key_landscape_fullscreen), true);
-//				e.putBoolean(context.getString(R.string.settings_key_portrait_fullscreen), true);
-//				//enabling 16keys, disabling english
+				e.putBoolean(context.getString(R.string.settings_key_landscape_fullscreen), false);
+				e.putBoolean(context.getString(R.string.settings_key_portrait_fullscreen), false);
+				e.putBoolean("auto_caps", false);
+				e.putBoolean("candidates_on", false);
+				e.putBoolean("auto_complete", false);
+				// see res/xml/extension_keyboards.xml for ids
+				e.putString(context.getString(R.string.settings_key_ext_kbd_bottom_row_key), "59295DFF-4A34-4DC9-86E1-8844F56F6858");
+
+						
+				//enabling 16keys, disabling english
 //				e.putBoolean("keyboard_12335055-4aa6-49dc-8456-c7d38a1a5123", true);
 //				e.putBoolean("keyboard_c7535083-4fe6-49dc-81aa-c5438a1a343a", false);
-//				
-//				//enabling external Hebrew
+				
+				//enabling external Hebrew
 //				e.putBoolean("keyboard_8958fb12-6558-4e96-9aa6-0e90101570b3", true);
-//				
-//				//sound on
+				
+				//sound on
 //				e.putBoolean(context.getString(R.string.settings_key_sound_on), true);
-//				//custom volume: mid
+				//custom volume: mid
 //				e.putBoolean("use_custom_sound_volume", true);
 //				e.putInt("custom_sound_volume", 50);
-//				//vibrate on (hard)
+				//vibrate on (hard)
 //				e.putString(context.getString(R.string.settings_key_vibrate_on_key_press_duration), "50");
-//				//no RTL fixes
+				//no RTL fixes
 //				e.putString("rtl_workaround_detection", "no_workaround");
-//				//no backword
+				//no backword
 //				e.putBoolean(context.getString(R.string.settings_key_use_backword), false);
-//				//portrait height
-//				e.putString("zoom_factor_keys_in_portrait", "1.4");
-//				//saving customization level
+				//portrait height
+				e.putString("zoom_factor_keys_in_portrait", "1.2");
+				//saving customization level
 //				e.putInt(CUSTOMIZATION_LEVEL, 1);
-//				e.commit();
+				e.commit();
 //			}
 	}
 
@@ -462,44 +467,46 @@ public class ConfigurationImpl implements Configuration, OnSharedPreferenceChang
 	}
 	
 	private int getIntFromSwipeConfiguration(SharedPreferences sp, final String prefKey, final String defaultValue) {
-		final String keyValue = sp.getString(prefKey, defaultValue);
+		// m4l: deactivated swiping
 		
-		if (keyValue.equalsIgnoreCase("next_alphabet"))
-			return KeyCodes.MODE_ALPHABET;
-		else if (keyValue.equalsIgnoreCase("next_symbols"))
-			return KeyCodes.MODE_SYMOBLS;
-		else if (keyValue.equalsIgnoreCase("cycle_keyboards"))
-			return KeyCodes.KEYBOARD_CYCLE;
-		else if (keyValue.equalsIgnoreCase("reverse_cycle_keyboards"))
-            return KeyCodes.KEYBOARD_REVERSE_CYCLE;
-		else if (keyValue.equalsIgnoreCase("shift"))
-			return KeyCodes.SHIFT;
-		else if (keyValue.equalsIgnoreCase("hide"))
-			return KeyCodes.CANCEL;
-		else if (keyValue.equalsIgnoreCase("backspace"))
-			return KeyCodes.DELETE;
-		else if (keyValue.equalsIgnoreCase("backword"))
-			return KeyCodes.DELETE_WORD;
-		else if (keyValue.equalsIgnoreCase("clear_input"))
-			return KeyCodes.CLEAR_INPUT;
-		else if (keyValue.equalsIgnoreCase("cursor_up"))
-			return KeyCodes.ARROW_UP;
-		else if (keyValue.equalsIgnoreCase("cursor_down"))
-			return KeyCodes.ARROW_DOWN;
-		else if (keyValue.equalsIgnoreCase("cursor_left"))
-			return KeyCodes.ARROW_LEFT;
-		else if (keyValue.equalsIgnoreCase("cursor_right"))
-			return KeyCodes.ARROW_RIGHT;
-		else if (keyValue.equalsIgnoreCase("next_inside_mode"))
-			return KeyCodes.KEYBOARD_CYCLE_INSIDE_MODE;
-		else if (keyValue.equalsIgnoreCase("other_keyboards_mode"))
-			return KeyCodes.KEYBOARD_MODE_CHANGE;
-		else if (keyValue.equalsIgnoreCase("split_layout"))
-			return KeyCodes.SPLIT_LAYOUT;
-		else if (keyValue.equalsIgnoreCase("merge_layout"))
-			return KeyCodes.MERGE_LAYOUT;
-		else if (keyValue.equalsIgnoreCase("utility_keyboard"))
-			return KeyCodes.UTILITY_KEYBOARD;
+//		final String keyValue = sp.getString(prefKey, defaultValue);
+		
+//		if (keyValue.equalsIgnoreCase("next_alphabet"))
+//			return KeyCodes.MODE_ALPHABET;
+//		else if (keyValue.equalsIgnoreCase("next_symbols"))
+//			return KeyCodes.MODE_SYMOBLS;
+//		else if (keyValue.equalsIgnoreCase("cycle_keyboards"))
+//			return KeyCodes.KEYBOARD_CYCLE;
+//		else if (keyValue.equalsIgnoreCase("reverse_cycle_keyboards"))
+//            return KeyCodes.KEYBOARD_REVERSE_CYCLE;
+//		else if (keyValue.equalsIgnoreCase("shift"))
+//			return KeyCodes.SHIFT;
+//		else if (keyValue.equalsIgnoreCase("hide"))
+//			return KeyCodes.CANCEL;
+//		else if (keyValue.equalsIgnoreCase("backspace"))
+//			return KeyCodes.DELETE;
+//		else if (keyValue.equalsIgnoreCase("backword"))
+//			return KeyCodes.DELETE_WORD;
+//		else if (keyValue.equalsIgnoreCase("clear_input"))
+//			return KeyCodes.CLEAR_INPUT;
+//		else if (keyValue.equalsIgnoreCase("cursor_up"))
+//			return KeyCodes.ARROW_UP;
+//		else if (keyValue.equalsIgnoreCase("cursor_down"))
+//			return KeyCodes.ARROW_DOWN;
+//		else if (keyValue.equalsIgnoreCase("cursor_left"))
+//			return KeyCodes.ARROW_LEFT;
+//		else if (keyValue.equalsIgnoreCase("cursor_right"))
+//			return KeyCodes.ARROW_RIGHT;
+//		else if (keyValue.equalsIgnoreCase("next_inside_mode"))
+//			return KeyCodes.KEYBOARD_CYCLE_INSIDE_MODE;
+//		else if (keyValue.equalsIgnoreCase("other_keyboards_mode"))
+//			return KeyCodes.KEYBOARD_MODE_CHANGE;
+//		else if (keyValue.equalsIgnoreCase("split_layout"))
+//			return KeyCodes.SPLIT_LAYOUT;
+//		else if (keyValue.equalsIgnoreCase("merge_layout"))
+//			return KeyCodes.MERGE_LAYOUT;
+//		else if (keyValue.equalsIgnoreCase("utility_keyboard"))
+//			return KeyCodes.UTILITY_KEYBOARD;
 		
 		return 0;//0 means no action
 	}

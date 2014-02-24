@@ -1855,7 +1855,8 @@ public class AnySoftKeyboard extends InputMethodService implements
 			}
 			break;
 		case KeyCodes.SETTINGS:
-			showOptionsMenu();
+			// TODO: remove Icon?
+//			showOptionsMenu();
 			break;
 		case KeyCodes.SPLIT_LAYOUT:
 		case KeyCodes.MERGE_LAYOUT:
@@ -3230,16 +3231,16 @@ public class AnySoftKeyboard extends InputMethodService implements
 				.equals(KEYBOARD_NOTIFICATION_ALWAYS))
 			notifyKeyboardChangeIfNeeded();
 
-		mAutoCap = sp.getBoolean("auto_caps", true);
+		mAutoCap = sp.getBoolean("auto_caps", false);
 
-		mShowSuggestions = sp.getBoolean("candidates_on", true);
+		mShowSuggestions = sp.getBoolean("candidates_on", false);
 
 		setDictionariesForCurrentKeyboard();
 
-		mAutoComplete = sp.getBoolean("auto_complete", true)
+		mAutoComplete = sp.getBoolean("auto_complete", false)
 				&& mShowSuggestions;
 
-		mQuickFixes = sp.getBoolean("quick_fix", true);
+		mQuickFixes = sp.getBoolean("quick_fix", false);
 
 		mAllowSuggestionsRestart = sp.getBoolean(
 				getString(R.string.settings_key_allow_suggestions_restart),

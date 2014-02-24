@@ -101,7 +101,7 @@
   <string name="special_dictionaries_group">Адмысловыя слоўнікі</string>
   <string name="use_user_dictionary">Карыстальніцкія слоўнікі</string>
   <string name="use_auto_dictionary">Аўтаматычны слоўнік</string>
-  <string name="use_auto_dictionary_on_summary">Таксама прапаноўваць часта ўжываныя словы</string>
+<!--   <string name="use_auto_dictionary_on_summary">Таксама прапаноўваць часта ўжываныя словы</string> -->
   <string name="use_contacts_dictionary">Слоўнік кантактаў</string>
   <string name="use_contacts_dictionary_on_summary">Прапаноўваць імёны са сьпісу кантактаў</string>
   <string name="tweaks_group">Зьмены</string>

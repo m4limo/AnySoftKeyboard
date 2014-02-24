@@ -114,8 +114,8 @@
   <string name="use_user_dictionary_on_summary">اقتراح الكلمات المضافة من قبل المستخدم (اضغط مطولا على اقتراح لإضافتة)</string>
   <string name="use_user_dictionary_off_summary"/>
   <string name="use_auto_dictionary">القاموس الآلي</string>
-  <string name="use_auto_dictionary_on_summary">اقتراح الكلمات المستخدمة بشكل متكرر أيضاُ</string>
-  <string name="use_auto_dictionary_off_summary"/>
+<!--   <string name="use_auto_dictionary_on_summary">اقتراح الكلمات المستخدمة بشكل متكرر أيضاُ</string> -->
+<!--   <string name="use_auto_dictionary_off_summary"/> -->
   <string name="use_contacts_dictionary">قاموس جهات الاتصال</string>
   <string name="use_contacts_dictionary_on_summary">اقتراح أسماء من قائمة جهات الاتصال</string>
   <string name="use_contacts_dictionary_off_summary"/>
